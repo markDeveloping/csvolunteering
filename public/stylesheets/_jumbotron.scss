@@ -1,7 +1,23 @@
 .jumbotron {
 	background-color: #28A197;
 	color: #ffffff;
+
+	a {
+		color: #ffffff;
+		padding: 10px 15px;
+		border: 2px solid #ffffff;
+		background-color: #28A197;
+		margin-top: 15px;
+		font-size: 21px;
+	}
+
+	.btn:hover, :visited {
+		color: #eee;
+		text-decoration: underline;
+	}
 }
+
+
 
 .navbar {
 	margin-bottom: 0;
