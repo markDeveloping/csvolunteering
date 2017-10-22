@@ -1,3 +1,4 @@
+// essential app variables
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,8 +7,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
+//mongodb connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://mark:volunteering8!@ds127375.mlab.com:27375/volunteering';
+mongoose.connect(mongoDB, {
+  useMongoClient: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//router files
 var index = require('./routes/index');
 var users = require('./routes/users');
+var opportunities = require('./routes/opportunities');
+var catalog = require('./routes/catalog');
 
 var app = express();
 
@@ -31,7 +44,9 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/opportunities', opportunities);
 app.use('/users', users);
+app.use('/catalog', catalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
