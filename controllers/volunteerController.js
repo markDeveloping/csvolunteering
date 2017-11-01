@@ -2,7 +2,7 @@ var Volunteer = require('../models/volunteering');
 
 // Display list of all volunteer opportunities
 exports.volunteer_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author list');
+  res.render('index', { title: 'Civil Service Volunteering - Home' });
 };
 
 // Display detail page for a specific volunteer opportunities
@@ -12,11 +12,12 @@ exports.volunteer_detail = function(req, res) {
 
 // Display volunteer opportunities create form on GET
 exports.volunteer_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author create GET');
+    res.render('opportunities', { title: 'Civil Service Volunteering - Add opportunity' });
 };
 
 // Handle volunteer opportunities create on POST
 exports.volunteer_create_post = function(req, res) {
+	console.log(req.body);
     res.send('NOT IMPLEMENTED: Author create POST');
 };
 
